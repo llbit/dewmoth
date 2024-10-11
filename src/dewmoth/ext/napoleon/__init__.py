@@ -23,7 +23,7 @@ def process_docstring(lines):
 
 def setup(app):
     app.setup_extension('sphinx.ext.napoleon')
-    app.setup_extension('hawkmoth')
+    app.setup_extension('dewmoth')
 
     app.add_config_value('hawkmoth_napoleon_transform', 'napoleon', 'env', [str])
 

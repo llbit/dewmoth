@@ -10,7 +10,7 @@ check: check-style check-typing check-rst check-examples
 
 .PHONY: check-style
 check-style:
-	flake8 src/hawkmoth test
+	flake8 src/dewmoth test
 
 .PHONY: check-typing
 check-typing:

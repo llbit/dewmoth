@@ -42,8 +42,8 @@ from clang.cindex import (
     Diagnostic,
 )
 
-from hawkmoth import docstring
-from hawkmoth.doccursor import (
+from dewmoth import docstring
+from dewmoth.doccursor import (
     CursorKind,
     TokenKind,
     DocCursor,

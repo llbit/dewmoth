@@ -4,10 +4,10 @@
 
 import pytest
 
-from hawkmoth import docstring
-from hawkmoth.ext import javadoc
-from hawkmoth.ext import napoleon
-from hawkmoth.parser import parse
+from dewmoth import docstring
+from dewmoth.ext import javadoc
+from dewmoth.ext import napoleon
+from dewmoth.parser import parse
 from test import testenv
 
 def _process_docstring(transform, lines):

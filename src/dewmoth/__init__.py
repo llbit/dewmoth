@@ -19,9 +19,9 @@ from sphinx.util.nodes import nested_parse_with_titles
 from sphinx.util.docutils import switch_source_input, SphinxDirective
 from sphinx.util import logging
 
-from hawkmoth.parser import parse, ErrorLevel
-from hawkmoth.util import strutil
-from hawkmoth import docstring
+from dewmoth.parser import parse, ErrorLevel
+from dewmoth.util import strutil
+from dewmoth import docstring
 
 with open(os.path.join(os.path.abspath(os.path.dirname(__file__)),
                        'VERSION')) as version_file:

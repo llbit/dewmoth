@@ -4,16 +4,16 @@
 Hawkmoth parser debug tool
 ==========================
 
-python3 -m hawkmoth
+python3 -m dewmoth
 """
 
 import argparse
 import os
 import sys
 
-from hawkmoth.ext import javadoc
-from hawkmoth.ext import napoleon
-from hawkmoth.parser import parse
+from dewmoth.ext import javadoc
+from dewmoth.ext import napoleon
+from dewmoth.parser import parse
 
 def filename(file):
     if os.path.isfile(file):
@@ -41,7 +41,7 @@ def _read_version():
     return version
 
 def main():
-    parser = argparse.ArgumentParser(prog='hawkmoth', description="""
+    parser = argparse.ArgumentParser(prog='dewmoth', description="""
     Hawkmoth parser debug tool. Print the documentation comments extracted
     from FILE, along with the generated C Domain directives, to standard
     output. Include metadata with verbose output.""")

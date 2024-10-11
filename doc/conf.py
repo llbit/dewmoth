@@ -19,7 +19,7 @@ copyright = '2017-2023, Jani Nikula and contributors'
 author = 'Jani Nikula'
 
 with open(os.path.join(os.path.abspath(os.path.dirname(__file__)),
-                       '../src/hawkmoth/VERSION')) as version_file:
+                       '../src/dewmoth/VERSION')) as version_file:
     version = version_file.read().strip()
     release = version
 
@@ -27,9 +27,9 @@ with open(os.path.join(os.path.abspath(os.path.dirname(__file__)),
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#general-configuration
 
 extensions = [
-    'hawkmoth',
-    'hawkmoth.ext.javadoc',
-    'hawkmoth.ext.napoleon',
+    'dewmoth',
+    'dewmoth.ext.javadoc',
+    'dewmoth.ext.napoleon',
     'sphinx.ext.intersphinx',
 ]
 
@@ -55,7 +55,7 @@ pygments_style = None
 
 # Setup Clang on Read The Docs
 if 'READTHEDOCS' in os.environ:
-    from hawkmoth.util import readthedocs
+    from dewmoth.util import readthedocs
 
     readthedocs.clang_setup()
 

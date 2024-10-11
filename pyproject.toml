@@ -3,7 +3,7 @@ requires = ["hatchling"]
 build-backend = "hatchling.build"
 
 [project]
-name = "hawkmoth"
+name = "dewmoth"
 dynamic = ["version"]
 description = "Hawkmoth - Sphinx Autodoc for C"
 readme = {file = "README.rst", content-type = "text/x-rst"}
@@ -46,14 +46,14 @@ dev = [
 ]
 
 [project.scripts]
-hawkmoth = "hawkmoth.__main__:main"
+dewmoth = "dewmoth.__main__:main"
 
 [project.urls]
 Homepage = "https://github.com/llbit/dewmoth"
 Documentation = "https://jnikula.github.io/dewmoth/stable/"
 
 [tool.hatch.version]
-path = "src/hawkmoth/VERSION"
+path = "src/dewmoth/VERSION"
 pattern = "(?P<version>[a-zA-Z0-9._-]*)"
 
 [tool.hatch.build.targets.sdist]
@@ -73,7 +73,7 @@ exclude = [
 [tool.mypy]
 mypy_path = "src:."
 packages = [
-    "hawkmoth",
+    "dewmoth",
     "test",
 ]
 exclude = "(test/conf\\.py)"

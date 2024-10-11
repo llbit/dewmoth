@@ -16,9 +16,9 @@ release = ''
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#general-configuration
 
 extensions = [
-    'hawkmoth',
-    'hawkmoth.ext.javadoc',
-    'hawkmoth.ext.napoleon',
+    'dewmoth',
+    'dewmoth.ext.javadoc',
+    'dewmoth.ext.napoleon',
 ]
 
 # List of patterns, relative to source directory, that match files and

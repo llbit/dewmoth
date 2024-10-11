@@ -432,7 +432,7 @@ def process_docstring(lines):
     lines[:] = [line for line in _convert(lines=lines)]
 
 def setup(app):
-    app.setup_extension('hawkmoth')
+    app.setup_extension('dewmoth')
 
     app.add_config_value('hawkmoth_javadoc_transform', 'javadoc', 'env', [str])
 

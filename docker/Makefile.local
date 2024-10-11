@@ -4,8 +4,8 @@
 
 docker_dir := docker
 
-HAWKMOTH_VERSION := $(shell cat src/hawkmoth/VERSION)
-HAWKMOTH_ARCHIVE := $(docker_dir)/hawkmoth-$(HAWKMOTH_VERSION).tar.gz
+HAWKMOTH_VERSION := $(shell cat src/dewmoth/VERSION)
+HAWKMOTH_ARCHIVE := $(docker_dir)/dewmoth-$(HAWKMOTH_VERSION).tar.gz
 
 INSIDE_WORK_TREE := $(shell git rev-parse --is-inside-work-tree 2>/dev/null)
 

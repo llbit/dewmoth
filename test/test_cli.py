@@ -7,7 +7,7 @@ import re
 
 import pytest
 
-from hawkmoth.__main__ import main
+from dewmoth.__main__ import main
 from test import testenv
 
 # Replace full filename in a stderr line with basename
