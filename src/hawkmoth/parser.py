@@ -148,12 +148,18 @@ def _comment_extract(tu):
     top_level_comments = []
     comments = {}
     current_comment = None
+    prev_field = None
 
     def is_doc(cursor): return cursor and docstring.Docstring.is_doc(cursor.spelling)
 
     for token in tu.get_tokens(extent=tu.cursor.extent):
         # Handle all comments we come across.
         if token.kind == TokenKind.COMMENT:
+            if prev_field and token.spelling.startswith('//!<'):
+                comments[prev_field.hash] = token
+                prev_field = None
+                current_comment = None
+                continue
             # If we already have a comment, it wasn't related to another cursor.
             if is_doc(current_comment):
                 top_level_comments.append(current_comment)
@@ -187,6 +193,9 @@ def _comment_extract(tu):
         # level comment.
         if is_doc(current_comment):
             comments[token_cursor.hash] = current_comment
+        elif token_cursor.kind is CursorKind.FIELD_DECL:
+            prev_field = token_cursor
+
         current_comment = None
 
     # Comment at the end of file.

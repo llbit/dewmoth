@@ -91,6 +91,10 @@ class Docstring():
         """Test if comment is a C documentation comment."""
         return comment.startswith('/**') and comment != '/**/'
 
+    @staticmethod
+    def is_doxygen_trailing(comment):
+        return comment.startswith('//!<')
+
     def _get_header_lines(self):
         name = self._get_decl_name()
         domain = self._domain
@@ -100,7 +104,10 @@ class Docstring():
         return header.splitlines()
 
     def _get_comment_lines(self):
-        return statemachine.string2lines(self._text, 8, convert_whitespace=True)
+        if self._text.startswith('//!<'):
+            return [self._text[5:]]
+        else:
+            return statemachine.string2lines(self._text, 8, convert_whitespace=True)
 
     @staticmethod
     def _remove_comment_markers(lines):
