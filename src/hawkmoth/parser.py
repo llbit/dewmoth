@@ -32,6 +32,7 @@ The documentation comments are returned verbatim in a tree of Docstring objects.
 
 import enum
 import os
+import re
 from dataclasses import dataclass
 
 from clang.cindex import (
@@ -149,6 +150,7 @@ def _comment_extract(tu):
     comments = {}
     current_comment = None
     prev_field = None
+    file_re = re.compile(r'@file\b')
 
     def is_doc(cursor): return cursor and docstring.Docstring.is_doc(cursor.spelling)
 
@@ -165,7 +167,10 @@ def _comment_extract(tu):
             # If we already have a comment, it wasn't related to another cursor.
             if is_doc(current_comment):
                 top_level_comments.append(current_comment)
-            current_comment = token
+            if file_re.search(token.spelling):
+                top_level_comments.append(token)
+            else:
+                current_comment = token
             continue
 
         # Store off the token's cursor for a slight performance improvement
