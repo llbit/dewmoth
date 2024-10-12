@@ -5,7 +5,7 @@ build-backend = "hatchling.build"
 [project]
 name = "dewmoth"
 dynamic = ["version"]
-description = "Hawkmoth - Sphinx Autodoc for C"
+description = "Dewmoth - Doxygen Support for Hawkmoth"
 readme = {file = "README.rst", content-type = "text/x-rst"}
 license = {text = "BSD-2-Clause"}
 requires-python = "~=3.9"
