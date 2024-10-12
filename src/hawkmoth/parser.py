@@ -156,8 +156,10 @@ def _comment_extract(tu):
         # Handle all comments we come across.
         if token.kind == TokenKind.COMMENT:
             if prev_field and token.spelling.startswith('//!<'):
-                comments[prev_field.hash] = token
-                prev_field = None
+                if prev_field.hash in comments:
+                    comments[prev_field.hash] += [token]
+                else:
+                    comments[prev_field.hash] = [token]
                 current_comment = None
                 continue
             # If we already have a comment, it wasn't related to another cursor.
@@ -192,7 +194,7 @@ def _comment_extract(tu):
         # Otherwise the current comment documents _this_ cursor. I.e.: not a top
         # level comment.
         if is_doc(current_comment):
-            comments[token_cursor.hash] = current_comment
+            comments[token_cursor.hash] = [current_comment]
         elif token_cursor.kind is CursorKind.FIELD_DECL:
             prev_field = token_cursor
 

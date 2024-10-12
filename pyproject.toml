@@ -49,8 +49,8 @@ dev = [
 hawkmoth = "hawkmoth.__main__:main"
 
 [project.urls]
-Homepage = "https://github.com/jnikula/hawkmoth"
-Documentation = "https://jnikula.github.io/hawkmoth/stable/"
+Homepage = "https://github.com/llbit/dewmoth"
+Documentation = "https://jnikula.github.io/dewmoth/stable/"
 
 [tool.hatch.version]
 path = "src/hawkmoth/VERSION"

@@ -51,7 +51,7 @@ class DocCursor:
         if self._cc.hash in self._comments:
             self._comment = self._comments[self._cc.hash]
         else:
-            self._comment = None
+            self._comment = []
 
     def __hash__(self):
         return self._cc.hash
@@ -71,7 +71,11 @@ class DocCursor:
 
     @property
     def comment(self):
-        return self._comment.spelling if self._comment else None
+        if not self._comment:
+            return None
+        if self._comment[0].spelling.startswith('//!<'):
+            return ' '.join([self._comment[0].spelling] + [x.spelling[5:] for x in self._comment[1:]])
+        return self._comment[0].spelling
 
     @property
     def domain(self):
@@ -123,7 +127,7 @@ class DocCursor:
 
     @property
     def line(self):
-        return self._comment.extent.start.line if self._comment else None
+        return self._comment[0].extent.start.line if self._comment else None
 
     @property
     def args(self):
